@@ -7,7 +7,7 @@ namespace CSharpCorePFCursus
         static void Main(string[] args)
         {
             Console.WriteLine("Asterix "); 
-            Console.WriteLine("en Obelix");
+            Console.WriteLine("Obelix");
         }
     }
 }
