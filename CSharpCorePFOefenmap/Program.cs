@@ -4,16 +4,28 @@ namespace CSharpCorePFOefenmap
 {
     class Program
     {
-        const float GemLichTempCelcius = 37.0F;
         static void Main(string[] args)
         {
-            float GemLichTemptFahrenheit =
-                GemLichTempCelcius * 9.0F / 5.0F + 32.0F;
-            Console.WriteLine("Gemiddelde lichaamstemperatuur in graden Celcius: " + GemLichTempCelcius);
-            Console.WriteLine("Gemiddelde lichaamstemperatuur in graden Fahrenheit: " + GemLichTemptFahrenheit);
-
-
-
+            Console.WriteLine("Wat is je aankoopbedrag?");
+            float aankoopBedrag = float.Parse(Console.ReadLine());
+            float korting;
+            if (aankoopBedrag < 25)
+            {
+                korting = (aankoopBedrag / 100) * 1;
+            }
+            else if (aankoopBedrag >= 25 && aankoopBedrag < 50)
+            {
+                korting = (aankoopBedrag / 100) * 2;
+            }
+            else if (aankoopBedrag >= 50 && aankoopBedrag < 100)
+            {
+                korting = (aankoopBedrag / 100) * 3;
+            }
+            else
+            {
+                korting = (aankoopBedrag / 100) * 5;
+            }
+            Console.WriteLine($"Je korting bedraagt {korting} procent");
         }
     }
 }
