@@ -6,26 +6,17 @@ namespace CSharpCorePFOefenmap
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Wat is je aankoopbedrag?");
-            float aankoopBedrag = float.Parse(Console.ReadLine());
-            float korting;
-            if (aankoopBedrag < 25)
-            {
-                korting = (aankoopBedrag / 100) * 1;
-            }
-            else if (aankoopBedrag >= 25 && aankoopBedrag < 50)
-            {
-                korting = (aankoopBedrag / 100) * 2;
-            }
-            else if (aankoopBedrag >= 50 && aankoopBedrag < 100)
-            {
-                korting = (aankoopBedrag / 100) * 3;
-            }
+            Console.Write("geef een jaartal");
+            int jaar = int.Parse(Console.ReadLine());
+
+            string schrikkel;
+            if (jaar % 4 == 0)
+                if (jaar % 100 == 0 && jaar % 400 != 0)
+                    schrikkel = "geen";
+                else schrikkel = "een";
             else
-            {
-                korting = (aankoopBedrag / 100) * 5;
-            }
-            Console.WriteLine($"Je korting bedraagt {korting} procent");
+                schrikkel = "geen";
+            Console.WriteLine("Het jaar {0} is {1} schrikkeljaar", jaar, schrikkel);
         }
     }
 }
