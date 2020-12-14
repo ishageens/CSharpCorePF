@@ -2,16 +2,19 @@
 
 namespace CSharpCorePFCursus
 {
+    public enum Seizoen
+    {
+        Lente = 1, Zomer, Herfst, Winter
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Tik je leeftijd:");
-            int leeftijd = int.Parse(Console.ReadLine());
-            Console.Write("Je bent");
-            if (leeftijd < 18)
-                Console.Write(" niet");
-            Console.WriteLine(" toegelaten.");
+            Seizoen plukseizoen = Seizoen.Herfst;
+            Console.WriteLine(plukseizoen);
+            Console.WriteLine((int)plukseizoen);
+
+
         }
     }
 }
