@@ -10,23 +10,40 @@ namespace CSharpCorePFCursus
         public string Naam
         {
             get { return naamValue; }
-            set {
+            set
+            {
                 if (value != string.Empty)
-                    naamValue = value; }
+                    naamValue = value;
+            }
         }
 
-        private DateTime inDienstValue;
-        public DateTime InDienst
+        public DateTime InDienst { get; set; }
+        public Geslacht Geslacht { get; set; }
+
+        private decimal salarisValue;
+        public decimal Salaris
         {
-            get { return inDienstValue; }
-            set { inDienstValue = value; }
+            get { return salarisValue; }
+            private set
+            {
+                if (value >= 0m)
+                    salarisValue = value;
+            }
         }
 
-        private Geslacht geslachtValue;
-        public Geslacht Geslacht
+        public bool VerjaarAncien
         {
-            get { return geslachtValue; }
-            set { geslachtValue = value; }
+            get
+            {
+                return InDienst.Month == DateTime.Today.Month && InDienst.Day == DateTime.Today.Day;
+            }
+        }
+
+        public void Afbeelden()
+        {
+            Console.WriteLine($"Naam: {Naam}");
+            Console.WriteLine($"Geslacht: {Geslacht}");
+            Console.WriteLine($"In dienst: {InDienst}");
         }
     }
 }
