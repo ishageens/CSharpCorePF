@@ -6,6 +6,16 @@ namespace CSharpCorePFCursus
 {
     public class Werknemer
     {
+        /*   public Werknemer() : this("Onbekend", DateTime.Today, Geslacht.Man)
+           {
+           } 
+        */
+        public Werknemer(string naam, DateTime inDienst, Geslacht geslacht)
+        {
+            this.Naam = naam;
+            this.InDienst = inDienst;
+            this.Geslacht = geslacht;
+        }
         private string naamValue;
         public string Naam
         {

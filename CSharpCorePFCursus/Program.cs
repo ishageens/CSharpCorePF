@@ -6,22 +6,9 @@ namespace CSharpCorePFCursus
     {
         static void Main(string[] args)
         {
-            Omzetter omzetter = new Omzetter();
-            Console.Write("Afstand in cm: ");
-            if (double.TryParse(Console.ReadLine(), out double cm))
-            {
-                Console.WriteLine($"{omzetter.CmNaarInch(cm)} inches");
-            }
-            else
-            {
-                Console.WriteLine("Geen geldig getal");
-            }
+            Werknemer ik = new Werknemer("Asterix", new DateTime(2019, 1, 1), Geslacht.Man);
+            ik.Afbeelden();
 
-            LijnenTrekker lijnenTrekker = new LijnenTrekker();
-            lijnenTrekker.TrekLijn3();
-            Console.Write("Afstand in inches: ");
-            double inches = double.Parse(Console.ReadLine());
-            Console.WriteLine($"{omzetter.InchNaarCm(inches)}");
         }
     }
 }
