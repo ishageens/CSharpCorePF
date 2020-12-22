@@ -29,6 +29,16 @@ namespace CSharpCorePFCursus
         {
             return $"{base.ToString()} {Wedde} euro/maand";
         }
+
+        public override decimal Premie
+        {
+            get
+            {
+                return Wedde * 2m;
+            }
+        }
+
+
         public override void Afbeelden()
         {
             base.Afbeelden(); Console.WriteLine($"Wedde: {Wedde}");

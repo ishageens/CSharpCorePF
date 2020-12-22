@@ -6,13 +6,15 @@ namespace CSharpCorePFCursus
     {
         static void Main(string[] args)
         {
-            object ik = new Manager("Asterix", new DateTime(2019, 1, 1),
+            Arbeider asterix = new Arbeider("Asterix", new DateTime(2019, 1, 1),
+            Geslacht.Man, 24.79m, 3);
+            Bediende obelix = new Bediende("Obelix", new DateTime(1995, 1, 1),
+            Geslacht.Man, 2400.79m);
+            Manager idefix = new Manager("Idefix", new DateTime(1996, 1, 1),
             Geslacht.Man, 2400.79m, 7000m);
-            Console.WriteLine(ik is Manager);
-            Console.WriteLine(ik is Bediende);
-            Console.WriteLine(ik is Werknemer);
-            Console.WriteLine(ik is Arbeider);
-            Console.WriteLine(ik is string);
+            Console.WriteLine(asterix.Premie);
+            Console.WriteLine(obelix.Premie);
+            Console.WriteLine(idefix.Premie);
         }
     }
 }

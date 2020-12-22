@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpCorePFCursus
 {
-    public class Werknemer
+    public abstract class Werknemer
     {
         public Werknemer() : this("Onbekend", DateTime.Today, Geslacht.Man)
         {
@@ -72,6 +72,11 @@ namespace CSharpCorePFCursus
         public override string ToString()
         {
             return $"{Naam} {Geslacht}";
+        }
+
+        public abstract decimal Premie
+        {
+            get;
         }
         public virtual void Afbeelden()
         {

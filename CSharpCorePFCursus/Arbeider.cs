@@ -39,6 +39,14 @@ namespace CSharpCorePFCursus
             return $"{base.ToString()} {Uurloon} euro/uur";
         }
 
+        public override decimal Premie
+        {
+            get
+            {
+                return Uurloon * 150m;
+            }
+        }
+
         public override void Afbeelden()
         {
             base.Afbeelden();

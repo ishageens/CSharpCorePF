@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpCorePFCursus
 {
-    public class Manager : Bediende
+    public sealed class Manager : Bediende
     {
         public Manager(string naam, DateTime indienst, Geslacht geslacht,
         decimal wedde, decimal bonus)
@@ -29,6 +29,16 @@ namespace CSharpCorePFCursus
         {
             return $"{base.ToString()}, Bonus: {Bonus}";
         }
+
+        public override decimal Premie
+        {
+            get
+            {
+                return Bonus * 3m;
+            }
+        }
+
+
         public override void Afbeelden()
         {
             base.Afbeelden();
