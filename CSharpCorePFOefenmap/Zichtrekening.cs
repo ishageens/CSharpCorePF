@@ -17,7 +17,7 @@ namespace CSharpCorePFOefenmap
             get { return maxKredietValue; }
             set
             {
-                if (value < 0)
+                if (value <= 0m)
                     maxKredietValue = value;
             }
         }
