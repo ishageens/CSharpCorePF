@@ -6,15 +6,22 @@ namespace CSharpCorePFCursus
 {
     public class Werknemer
     {
-        /*   public Werknemer() : this("Onbekend", DateTime.Today, Geslacht.Man)
-           {
-           } 
-        */
+        public Werknemer() : this("Onbekend", DateTime.Today, Geslacht.Man)
+        {
+        }
+
         public Werknemer(string naam, DateTime inDienst, Geslacht geslacht)
         {
             this.Naam = naam;
             this.InDienst = inDienst;
             this.Geslacht = geslacht;
+        }
+
+        static Werknemer()
+        {
+            Personeelsfeest = new DateTime(DateTime.Today.Year, 2, 1);
+            while (Personeelsfeest.DayOfWeek != DayOfWeek.Friday)
+                Personeelsfeest = Personeelsfeest.AddDays(1);
         }
         private string naamValue;
         public string Naam
@@ -49,11 +56,29 @@ namespace CSharpCorePFCursus
             }
         }
 
-        public void Afbeelden()
+        private static DateTime personeelsfeestValue;
+        public static DateTime Personeelsfeest
+        {
+            set
+            {
+                personeelsfeestValue = value;
+            }
+            get
+            {
+                return personeelsfeestValue;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{Naam} {Geslacht}";
+        }
+        public virtual void Afbeelden()
         {
             Console.WriteLine($"Naam: {Naam}");
             Console.WriteLine($"Geslacht: {Geslacht}");
             Console.WriteLine($"In dienst: {InDienst}");
+            Console.WriteLine($"Personeelsfeest: {Personeelsfeest}");
         }
     }
 }
