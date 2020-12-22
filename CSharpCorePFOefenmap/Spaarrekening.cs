@@ -6,13 +6,12 @@ namespace CSharpCorePFOefenmap
 {
     class Spaarrekening : Rekening
     {
-        public Spaarrekening(string nummer, decimal saldo, DateTime creatieDatum, decimal intrest) : base(nummer, saldo, creatieDatum)
+        public Spaarrekening(string nummer, decimal saldo, DateTime creatieDatum) : base(nummer, saldo, creatieDatum)
         {
-            Intrest = intrest;
         }
 
-        private decimal intrestValue;
-        public decimal Intrest
+        private static decimal intrestValue;
+        public static decimal Intrest
         {
             get { return intrestValue; }
             set

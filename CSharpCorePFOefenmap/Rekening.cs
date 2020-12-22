@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpCorePFOefenmap
 {
-    public class Rekening
+    public abstract class Rekening
     {
         private readonly DateTime EersteCreatie = new DateTime(1900, 1, 1); private string nummerValue;
         private DateTime creatieDatumValue;
