@@ -58,7 +58,7 @@ namespace CSharpCorePFOefenmap
             this.Nummerplaat = nummerPlaat;
         }
 
-        public void Afbeelden()
+        public virtual void Afbeelden()
         {
             Console.WriteLine($"Polishouder: {Polishouder}");
             Console.WriteLine($"Kostprijs: {Kostprijs}");
