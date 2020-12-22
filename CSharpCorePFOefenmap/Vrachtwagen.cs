@@ -27,6 +27,12 @@ namespace CSharpCorePFOefenmap
             }
         }
 
+        public override double GetKyotoScore()
+        {
+            return MaximumLading != 0 ? (GemiddeldVerbruik * Pk) / (MaximumLading / 1000.0) : 0.0;
+        }
+
+
         public override void Afbeelden()
         {
             base.Afbeelden();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpCorePFOefenmap
 {
-    class Voertuig
+    public abstract class Voertuig
     {
         public string Polishouder { get; set; }
 
@@ -57,6 +57,8 @@ namespace CSharpCorePFOefenmap
             this.GemiddeldVerbruik = gemVerbruik;
             this.Nummerplaat = nummerPlaat;
         }
+
+        public abstract double GetKyotoScore();
 
         public virtual void Afbeelden()
         {
