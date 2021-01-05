@@ -45,6 +45,10 @@ namespace CSharpCorePFOefenmap
             return AantalPassagiers != 0 ? (GemiddeldVerbruik * Pk) / AantalPassagiers : 0.0;
         }
 
+        public override double GeefVervuiling()
+        {
+            return GetKyotoScore() * 5;
+        }
         public override void Afbeelden()
         {
             base.Afbeelden();

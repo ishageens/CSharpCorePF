@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpCorePFOefenmap
 {
-    public abstract class Voertuig
+    public abstract class Voertuig : IVervuiler, IMilieu, IPrivaat
     {
         public string Polishouder { get; set; }
 
@@ -67,6 +67,18 @@ namespace CSharpCorePFOefenmap
             Console.WriteLine($"Pk: {Pk}");
             Console.WriteLine($"Gemiddeld verbruik: {GemiddeldVerbruik}");
             Console.WriteLine($"Nummerplaat: {Nummerplaat}");
+        }
+
+        public abstract double GeefVervuiling();
+
+        public string GeefMilieuData()
+        {
+            return string.Format($"PK: {Pk} - Kostprijs: {Kostprijs} - " + $"Gemiddeld verbruik: {GemiddeldVerbruik}");
+        }
+
+        public string GeefPrivateData()
+        {
+            return string.Format($"Polishouder: {Polishouder} - " + $"Nummerplaat: {Nummerplaat}");
         }
     }
 }
