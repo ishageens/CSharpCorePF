@@ -78,12 +78,17 @@ namespace CSharpCorePFCursus
         {
             get;
         }
+        public Afdeling Afdeling { get; set; }
+
+
         public virtual void Afbeelden()
         {
             Console.WriteLine($"Naam: {Naam}");
             Console.WriteLine($"Geslacht: {Geslacht}");
             Console.WriteLine($"In dienst: {InDienst}");
             Console.WriteLine($"Personeelsfeest: {Personeelsfeest}");
+            if (Afdeling != null)
+                Console.WriteLine(Afdeling);
         }
     }
 }
