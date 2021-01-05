@@ -4,9 +4,10 @@ using System.Text;
 
 namespace CSharpCorePFOefenmap
 {
-    public abstract class Rekening
+    public abstract class Rekening : ISpaarmiddel
     {
-        private readonly DateTime EersteCreatie = new DateTime(1900, 1, 1); private string nummerValue;
+        private readonly DateTime EersteCreatie = new DateTime(1900, 1, 1);
+        private string nummerValue;
         private DateTime creatieDatumValue;
         public string Nummer { get { return nummerValue; } set { if (IsGeldigRekeningNummer(value)) { nummerValue = value; } } }
         public decimal Saldo { get; set; }
