@@ -6,7 +6,7 @@ namespace CSharpCorePFOefenmap
 {
     class Spaarrekening : Rekening
     {
-        public Spaarrekening(string nummer, decimal saldo, DateTime creatieDatum) : base(nummer, saldo, creatieDatum)
+        public Spaarrekening(string nummer, decimal saldo, DateTime creatieDatum, Klant eigenaar) : base(nummer, saldo, creatieDatum, eigenaar)
         {
         }
 

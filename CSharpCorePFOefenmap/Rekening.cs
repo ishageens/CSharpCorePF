@@ -22,17 +22,22 @@ namespace CSharpCorePFOefenmap
                     creatieDatumValue = value;
             }
         }
-        public Rekening(string nummer, decimal saldo, DateTime creatieDatum)
+        public Rekening(string nummer, decimal saldo, DateTime creatieDatum, Klant eigenaar)
         {
             Nummer = nummer;
             Saldo = saldo;
             CreatieDatum = creatieDatum;
+            Eigenaar = eigenaar;
         }
+
+        public Klant Eigenaar { get; set; }
         public virtual void Afbeelden()
         {
             Console.WriteLine($"Rekeningnummer: {Nummer}");
             Console.WriteLine($"Saldo: {Saldo}");
             Console.WriteLine($"Creatiedatum: {CreatieDatum:dd-MM-yyyy}");
+            if (Eigenaar != null)
+                Eigenaar.Afbeelden();
         }
         public void Storten(decimal bedrag)
         {

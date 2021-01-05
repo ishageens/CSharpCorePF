@@ -6,7 +6,7 @@ namespace CSharpCorePFOefenmap
 {
     class Zichtrekening : Rekening
     {
-        public Zichtrekening(string nummer, decimal saldo, DateTime creatieDatum, decimal maxKrediet) : base(nummer, saldo, creatieDatum)
+        public Zichtrekening(string nummer, decimal saldo, DateTime creatieDatum, Klant eigenaar, decimal maxKrediet) : base(nummer, saldo, creatieDatum, eigenaar)
         {
             MaxKrediet = maxKrediet;
         }
