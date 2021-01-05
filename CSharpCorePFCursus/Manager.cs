@@ -38,6 +38,14 @@ namespace CSharpCorePFCursus
             }
         }
 
+        public override decimal Bedrag
+        {
+            get
+            {
+                return base.Bedrag + Bonus;
+            }
+        }
+
 
         public override void Afbeelden()
         {

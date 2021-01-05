@@ -38,6 +38,13 @@ namespace CSharpCorePFCursus
             }
         }
 
+        public override decimal Bedrag
+        {
+            get
+            {
+                return Wedde * 12m;
+            }
+        }
 
         public override void Afbeelden()
         {

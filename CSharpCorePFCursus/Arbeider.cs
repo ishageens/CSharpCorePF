@@ -47,6 +47,14 @@ namespace CSharpCorePFCursus
             }
         }
 
+        public override decimal Bedrag
+        {
+            get
+            {
+                return Uurloon * 2000m;
+            }
+        }
+
         public override void Afbeelden()
         {
             base.Afbeelden();

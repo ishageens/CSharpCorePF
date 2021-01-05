@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpCorePFCursus
 {
-    public abstract partial class Werknemer
+    public abstract partial class Werknemer : IKost
     {
         public Werknemer() : this("Onbekend", DateTime.Today, Geslacht.Man)
         {
@@ -79,6 +79,19 @@ namespace CSharpCorePFCursus
             get;
         }
         public Afdeling Afdeling { get; set; }
+
+        public abstract decimal Bedrag
+        {
+            get;
+        }
+
+        public bool Menselijk
+        {
+            get
+            {
+                return true;
+            }
+        }
 
         public virtual void Afbeelden()
         {
