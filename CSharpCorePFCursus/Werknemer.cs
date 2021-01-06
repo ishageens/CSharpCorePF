@@ -69,6 +69,9 @@ namespace CSharpCorePFCursus
             }
         }
 
+        public DateTime[] Verlofdagen { get; set; }
+        public DateTime[] Ziektedagen { get; set; }
+
         public override string ToString()
         {
             return $"{Naam} {Geslacht}";
