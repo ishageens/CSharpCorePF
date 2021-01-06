@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSharpCorePFCursus
+namespace Firma.Materiaal
 {
     public class Fotokopiemachine : IKost
     {
@@ -30,7 +30,7 @@ namespace CSharpCorePFCursus
             set
             {
                 if (value > 0)
-            kostPerBlzValue = value;
+                    kostPerBlzValue = value;
             }
         }
         public Fotokopiemachine(string serieNr, int aantalGekopieerdeBlz,

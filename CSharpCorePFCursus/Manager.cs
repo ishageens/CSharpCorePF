@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSharpCorePFCursus
+namespace Firma.Personeel
 {
     public sealed class Manager : Bediende
     {
