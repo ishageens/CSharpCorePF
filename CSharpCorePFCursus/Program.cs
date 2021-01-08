@@ -1,25 +1,23 @@
 ﻿using System;
 using Firma;
 using Firma.Personeel;
-
+using Firma.Materiaal;
 namespace CSharpCorePFCursus
 {
     class Program
     {
-        delegate void WerknemersLijst(Werknemer[] werknemers);
         public static void Main(string[] args)
         {
-            Werknemer[] wij = new Werknemer[3];
-            wij[0] = new Arbeider("Asterix", new DateTime(2019, 1, 1), Geslacht.Man, 24.79m, 3);
-            wij[1] = new Bediende("Obelix", new DateTime(1995, 2, 1), Geslacht.Man, 2400.79m);
-            wij[2] = new Manager("Idefix", new DateTime(1996, 3, 1), Geslacht.Man, 2400.79m, 7000m);
-
-            WerknemersLijst lijst;
-            lijst = Werknemer.UitgebreideWerknemersLijst;
-            lijst(wij);
-            Console.WriteLine();
-            lijst = Werknemer.KorteWerknemersLijst;
-            lijst(wij);
+            Fotokopiemachine machine1 = new Fotokopiemachine("123", 0, 2.0m);
+            Fotokopiemachine machine2 = new Fotokopiemachine("456", 0, 2.5m);
+            Bediende eenBediende = new Bediende("Asterix", DateTime.Today, Geslacht.Man, 2400.79m);
+            Manager eenManager = new Manager("Idefix", DateTime.Today, Geslacht.Man, 4800.4m, 2000m);
+            machine1.OnderhoudNodig += eenBediende.DoeOnderhoud;
+            machine1.OnderhoudNodig += eenManager.OnderhoudNoteren;
+            machine2.OnderhoudNodig += eenBediende.DoeOnderhoud;
+            machine2.OnderhoudNodig += eenManager.OnderhoudNoteren;
+            machine1.Fotokopieer(49);
+            machine2.Fotokopieer(14);
         }
     }
 }

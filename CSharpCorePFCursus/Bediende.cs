@@ -6,9 +6,11 @@ namespace Firma.Personeel
 {
     public class Bediende : Werknemer
     {
-        public Bediende(string naam, DateTime indienst,
-        Geslacht geslacht, decimal wedde)
-        : base(naam, indienst, geslacht)
+        public void DoeOnderhoud(Firma.Materiaal.Fotokopiemachine machine)
+        {
+            Console.WriteLine($"{Naam} onderhoudt machine {machine.SerieNr}");
+        }
+        public Bediende(string naam, DateTime indienst, Geslacht geslacht, decimal wedde) : base(naam, indienst, geslacht)
         {
             Wedde = wedde;
         }

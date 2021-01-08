@@ -4,8 +4,21 @@ using System.Text;
 
 namespace Firma.Materiaal
 {
+    public delegate void Onderhoudsbeurt(Fotokopiemachine machine);
     public class Fotokopiemachine : IKost
     {
+        public event Onderhoudsbeurt OnderhoudNodig;
+        private const int AantalBlzTussen2OnderhoudsBeurten = 10; public void Fotokopieer(int aantalBlz)
+        {
+            for (int blz = 1; blz <= aantalBlz; blz++)
+            {
+                Console.WriteLine($"FotokopieMachine {SerieNr} kopieert " +
+                $"blz. {blz} van {aantalBlz}");
+                if (++AantalGekopieerdeBlz % AantalBlzTussen2OnderhoudsBeurten == 0)
+                    if (OnderhoudNodig != null)
+                        OnderhoudNodig(this);
+            }
+        }
         private int aantalGekopieerdeBlzValue;
         private decimal kostPerBlzValue;
         public string SerieNr { get; set; }
