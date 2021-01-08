@@ -96,6 +96,19 @@ namespace Firma.Personeel
             }
         }
 
+        public static void UitgebreideWerknemersLijst(Werknemer[] werknemers)
+        {
+            Console.WriteLine("Uitgebreide werknemerslijst:");
+            foreach (Werknemer werknemer in werknemers)
+                werknemer.Afbeelden();
+        }
+
+        public static void KorteWerknemersLijst(Werknemer[] werknemers)
+        {
+            Console.WriteLine("Korte werknemerslijst:");
+            foreach (Werknemer werknemer in werknemers)
+                Console.WriteLine(werknemer.ToString());
+        }
         public virtual void Afbeelden()
         {
             Console.WriteLine($"Naam: {Naam}");
