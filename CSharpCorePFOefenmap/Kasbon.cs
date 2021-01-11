@@ -19,8 +19,9 @@ namespace CSharpCorePFOefenmap
             }
             set
             {
-                if (value >= eersteAankoopDatum)
-                    aankoopDatumValue = value;
+                if (value < eersteAankoopDatum)
+                    throw new Exception("Aankoopdatum mag niet voor 01-01-1900 zijn.");
+                aankoopDatumValue = value;
             }
         }
 
@@ -32,8 +33,9 @@ namespace CSharpCorePFOefenmap
             }
             set
             {
-                if (value > 0)
-                    bedragValue = value;
+                if (value < 0)
+                    throw new Exception("Bedrag mag niet negatief zijn.");
+                bedragValue = value;
             }
         }
         public int Looptijd
@@ -44,8 +46,9 @@ namespace CSharpCorePFOefenmap
             }
             set
             {
-                if (value > 0)
-                    looptijdValue = value;
+                if (value < 0)
+                    throw new Exception("Looptijd mag niet negatief zijn.");
+                looptijdValue = value;
             }
         }
         public decimal Intrest
@@ -56,8 +59,9 @@ namespace CSharpCorePFOefenmap
             }
             set
             {
-                if (value > 0)
-                    intrestValue = value;
+                if (value < 0)
+                    throw new Exception("Intrest mag niet negatief zijn.");
+                intrestValue = value;
             }
         }
 

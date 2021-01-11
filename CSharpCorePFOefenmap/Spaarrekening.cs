@@ -16,8 +16,9 @@ namespace CSharpCorePFOefenmap
             get { return intrestValue; }
             set
             {
-                if (value >= 0)
-                    intrestValue = value;
+                if (value < 0)
+                    throw new Exception("Intrest mag niet negatief zijn.");
+                intrestValue = value;
             }
         }
         public override void Afbeelden()

@@ -17,8 +17,9 @@ namespace CSharpCorePFOefenmap
             get { return maxKredietValue; }
             set
             {
-                if (value <= 0m)
-                    maxKredietValue = value;
+                if (value > 0m)
+                    throw new Exception("Krediet mag niet positief zijn");
+                maxKredietValue = value;
             }
         }
 

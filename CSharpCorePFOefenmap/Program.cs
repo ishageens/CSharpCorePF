@@ -6,44 +6,23 @@ namespace CSharpCorePFOefenmap
     {
         static void Main(string[] args)
         {
-            Bankbediende deBankbediende = new Bankbediende("Jos", "Vermeulen");
-            Klant ik = new Klant("Isha", "Geens");
+            try
+            {
+                Spaarrekening.Intrest = 3m;
 
-            Zichtrekening zr = new Zichtrekening("BE19731021964512", 100m, DateTime.Today, ik, -10);
-            Console.WriteLine("Zichtrekening: ");
-            zr.Afbeelden();
-            Console.WriteLine();
+                Klant ik = new Klant("Piet", "Pienter");
 
-            zr.RekeningUittreksel += deBankbediende.ToonRekeningUittreksel;
-            zr.SaldoInHetRood += deBankbediende.ToonSaldoInHetRood;
-
-            zr.Storten(50m);
-            Console.WriteLine();
-
-            zr.Afhalen(100m);
-            Console.WriteLine();
-
-            zr.Afhalen(100m);
-            Console.WriteLine();
-
-            Spaarrekening.Intrest = 0.01m;
-            Spaarrekening sr = new Spaarrekening("BE40645100000163", 1000m, DateTime.Today, ik);
-
-            sr.RekeningUittreksel += deBankbediende.ToonRekeningUittreksel;
-            sr.SaldoInHetRood += deBankbediende.ToonSaldoInHetRood;
-
-            Console.WriteLine("Spaarrekening: ");
-            sr.Afbeelden();
-            Console.WriteLine();
-
-
-            sr.Storten(2000m);
-            Console.WriteLine();
-
-            sr.Afhalen(1000m);
-            Console.WriteLine();
-
-            sr.Afhalen(4000m);
+                ISpaarmiddel[] spaarmiddelen = new ISpaarmiddel[3];
+                spaarmiddelen[0] = new Zichtrekening("BE40747524091936", 14.51m, DateTime.Today, ik, -500m);
+                spaarmiddelen[1] = new Spaarrekening("BE40645100000163", 1000m, DateTime.Today, ik);
+                spaarmiddelen[2] = new Kasbon(DateTime.Today, 1000m, 5, 3.5m, ik);
+                foreach (ISpaarmiddel spaarmiddel in spaarmiddelen)
+                    spaarmiddel.Afbeelden();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
     }

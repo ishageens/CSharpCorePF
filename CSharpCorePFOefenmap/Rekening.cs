@@ -14,7 +14,19 @@ namespace CSharpCorePFOefenmap
         private readonly DateTime EersteCreatie = new DateTime(1900, 1, 1);
         private string nummerValue;
         private DateTime creatieDatumValue;
-        public string Nummer { get { return nummerValue; } set { if (IsGeldigRekeningNummer(value)) { nummerValue = value; } } }
+        public string Nummer
+        {
+            get
+            {
+                return nummerValue;
+            }
+            set
+            {
+                if (!IsGeldigRekeningNummer(value))
+                    throw new Exception("Ongeldig rekeningnummer");
+                nummerValue = value;
+            }
+        }
         public decimal Saldo { get; set; }
         public decimal VorigSaldo { get; private set; }
         public DateTime CreatieDatum
@@ -25,8 +37,9 @@ namespace CSharpCorePFOefenmap
             }
             set
             {
-                if (value >= EersteCreatie)
-                    creatieDatumValue = value;
+                if (value < EersteCreatie)
+                    throw new Exception("Verkeerde datum");
+                creatieDatumValue = value;
             }
         }
         public Rekening(string nummer, decimal saldo, DateTime creatieDatum, Klant eigenaar)
