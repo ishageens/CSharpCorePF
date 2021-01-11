@@ -6,28 +6,45 @@ namespace CSharpCorePFOefenmap
     {
         static void Main(string[] args)
         {
-            Vrachtwagen vw = new Vrachtwagen("Jos", 125000, 250, 1000, "1abc758", 2500);
-            Personenwagen pw = new Personenwagen("Jef", 85000, 100, 600, "1def654", 5, 5);
+            Bankbediende deBankbediende = new Bankbediende("Jos", "Vermeulen");
+            Klant ik = new Klant("Isha", "Geens");
 
-            Console.WriteLine("Private gegevens:");
-            IPrivaat[] privategegevens = new IPrivaat[2];
-            privategegevens[0] = vw;
-            privategegevens[1] = pw;
+            Zichtrekening zr = new Zichtrekening("BE19731021964512", 100m, DateTime.Today, ik, -10);
+            Console.WriteLine("Zichtrekening: ");
+            zr.Afbeelden();
+            Console.WriteLine();
 
-            foreach (IPrivaat voertuig in privategegevens)
-            {
-                Console.WriteLine(voertuig.GeefPrivateData());
-            }
+            zr.RekeningUittreksel += deBankbediende.ToonRekeningUittreksel;
+            zr.SaldoInHetRood += deBankbediende.ToonSaldoInHetRood;
 
-            Console.WriteLine("Milieugegevens:");
-            IMilieu[] milieugegevens = new IMilieu[2];
-            milieugegevens[0] = vw;
-            milieugegevens[1] = pw;
+            zr.Storten(50m);
+            Console.WriteLine();
 
-            foreach (IMilieu voertuig in milieugegevens)
-            {
-                Console.WriteLine(voertuig.GeefMilieuData());
-            }
+            zr.Afhalen(100m);
+            Console.WriteLine();
+
+            zr.Afhalen(100m);
+            Console.WriteLine();
+
+            Spaarrekening.Intrest = 0.01m;
+            Spaarrekening sr = new Spaarrekening("BE40645100000163", 1000m, DateTime.Today, ik);
+
+            sr.RekeningUittreksel += deBankbediende.ToonRekeningUittreksel;
+            sr.SaldoInHetRood += deBankbediende.ToonSaldoInHetRood;
+
+            Console.WriteLine("Spaarrekening: ");
+            sr.Afbeelden();
+            Console.WriteLine();
+
+
+            sr.Storten(2000m);
+            Console.WriteLine();
+
+            sr.Afhalen(1000m);
+            Console.WriteLine();
+
+            sr.Afhalen(4000m);
+
         }
     }
 }

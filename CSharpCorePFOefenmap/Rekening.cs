@@ -6,11 +6,17 @@ namespace CSharpCorePFOefenmap
 {
     public abstract class Rekening : ISpaarmiddel
     {
+        public delegate void Transactie(Rekening rekening);
+
+        public event Transactie RekeningUittreksel;
+        public event Transactie SaldoInHetRood;
+
         private readonly DateTime EersteCreatie = new DateTime(1900, 1, 1);
         private string nummerValue;
         private DateTime creatieDatumValue;
         public string Nummer { get { return nummerValue; } set { if (IsGeldigRekeningNummer(value)) { nummerValue = value; } } }
         public decimal Saldo { get; set; }
+        public decimal VorigSaldo { get; private set; }
         public DateTime CreatieDatum
         {
             get
@@ -42,7 +48,26 @@ namespace CSharpCorePFOefenmap
         }
         public void Storten(decimal bedrag)
         {
+            VorigSaldo = Saldo;
             Saldo += bedrag;
+            if (RekeningUittreksel != null)
+                RekeningUittreksel(this);
+        }
+
+        public void Afhalen(decimal bedrag)
+        {
+            if (bedrag <= Saldo)
+            {
+                VorigSaldo = Saldo;
+                Saldo -= bedrag;
+                if (RekeningUittreksel != null)
+                    RekeningUittreksel(this);
+            }
+            else
+            {
+                if (SaldoInHetRood != null)
+                    SaldoInHetRood(this);
+            }
         }
         private bool IsGeldigRekeningNummer(string rekeningNummer)
         {
