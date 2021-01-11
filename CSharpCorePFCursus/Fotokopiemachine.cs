@@ -19,6 +19,26 @@ namespace Firma.Materiaal
                         OnderhoudNodig(this);
             }
         }
+
+        public class KostPerBlzException : Exception
+        {
+            public decimal VerkeerdeKost { get; set; }
+
+            public KostPerBlzException(string message, decimal verkeerdeKost) : base(message)
+            {
+                VerkeerdeKost = verkeerdeKost;
+            }
+        }
+
+        public class AantalGekopieerdeBlzException : Exception
+        {
+            public int VerkeerdAantalBlz { get; set; }
+
+            public AantalGekopieerdeBlzException(string message, int verkeerdAantalBlz) : base(message)
+            {
+                VerkeerdAantalBlz = verkeerdAantalBlz;
+            }
+        }
         private int aantalGekopieerdeBlzValue;
         private decimal kostPerBlzValue;
         public string SerieNr { get; set; }
@@ -30,8 +50,9 @@ namespace Firma.Materiaal
             }
             set
             {
-                if (value >= 0)
-                    aantalGekopieerdeBlzValue = value;
+                if (value < 0)
+                    throw new AantalGekopieerdeBlzException("Aantal gekopieerde blz. < 0!", value);
+                aantalGekopieerdeBlzValue = value;
             }
         }
         public decimal KostPerBlz
@@ -42,8 +63,9 @@ namespace Firma.Materiaal
             }
             set
             {
-                if (value > 0)
-                    kostPerBlzValue = value;
+                if (value <= 0)
+                    throw new KostPerBlzException("Kost per blz. <=0!", value);
+                kostPerBlzValue = value;
             }
         }
         public Fotokopiemachine(string serieNr, int aantalGekopieerdeBlz,
