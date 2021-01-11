@@ -8,20 +8,17 @@ namespace CSharpCorePFCursus
     {
         public static void Main(string[] args)
         {
+            Console.Write("Provincie: ");
+            string provincie = Console.ReadLine();
             try
             {
-                Fotokopiemachine machine = new Fotokopiemachine("123", -100, -5.4m);
-                Console.WriteLine("Machine goed ingevuld");
+                ProvincieInfo info = new ProvincieInfo();
+                Console.WriteLine(info.ProvincieGrootte(provincie));
             }
-            catch (Fotokopiemachine.KostPerBlzException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine($"Fout: {ex.Message}: {ex.VerkeerdeKost}");
+                Console.WriteLine(ex.Message);
             }
-            catch (Fotokopiemachine.AantalGekopieerdeBlzException ex)
-            {
-                Console.WriteLine($"Fout: {ex.Message}: {ex.VerkeerdAantalBlz}");
-            }
-            Console.WriteLine("Einde programma");
         }
     }
 }
