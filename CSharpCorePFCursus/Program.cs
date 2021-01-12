@@ -7,12 +7,20 @@ namespace CSharpCorePFCursus
 {
     class Program
     {
+        delegate int FunctieMetTweeParameters(int getal1, int getal2);
+        delegate int FunctieMetEenParameter(int getal);
+        delegate int FunctieZonderParameters();
         public static void Main(string[] args)
         {
-            byte? aantalKinderen = null;
-            byte aantalKamers;
-            aantalKamers = aantalKinderen ?? 0;
-            Console.WriteLine($"Er zijn {aantalKamers} kinderkamers nodig");
+            FunctieMetTweeParameters som = (getal1, getal2) => getal1 + getal2;
+            Console.WriteLine(som(3, 7));
+            Console.WriteLine(som(10, 6));
+
+            FunctieMetEenParameter kwadraat = getal => getal * getal;
+            Console.WriteLine(kwadraat(5));
+
+            FunctieZonderParameters willekeurigGetal = () => new Random().Next(10);
+            Console.WriteLine(willekeurigGetal());
         }
     }
 }
