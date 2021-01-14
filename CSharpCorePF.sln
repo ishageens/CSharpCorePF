@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpCorePFCursus", "CShar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpCorePFOefenmap", "CSharpCorePFOefenmap\CSharpCorePFOefenmap.csproj", "{94072EF9-A29C-4EEE-B4B3-ADE05E29EFC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoekBoekenrek", "BoekBoekenrek\BoekBoekenrek.csproj", "{FE70FFBF-9641-4F88-970D-EC3A661039F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoekBoekenrek", "BoekBoekenrek\BoekBoekenrek.csproj", "{FE70FFBF-9641-4F88-970D-EC3A661039F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PastaPizzaNet", "PastaPizzaNet\PastaPizzaNet.csproj", "{7E80B7A4-5DDD-403F-9C77-7330A94D7A21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{FE70FFBF-9641-4F88-970D-EC3A661039F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE70FFBF-9641-4F88-970D-EC3A661039F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE70FFBF-9641-4F88-970D-EC3A661039F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E80B7A4-5DDD-403F-9C77-7330A94D7A21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E80B7A4-5DDD-403F-9C77-7330A94D7A21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E80B7A4-5DDD-403F-9C77-7330A94D7A21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E80B7A4-5DDD-403F-9C77-7330A94D7A21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
