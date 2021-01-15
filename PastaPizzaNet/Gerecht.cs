@@ -12,9 +12,13 @@ namespace PastaPizzaNet
         public Gerecht(string naam, decimal prijs)
         {
             Naam = naam;
+            StandaardPrijs = prijs;
         }
 
         public override string ToString() => $"Gerecht: {Naam} ({StandaardPrijs} euro) ";
-        public abstract decimal BerekenBedrag();
+        public virtual decimal BerekenBedrag()
+        {
+            return StandaardPrijs;
+        }
     }
 }

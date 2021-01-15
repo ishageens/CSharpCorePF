@@ -4,11 +4,18 @@ using System.Text;
 
 namespace PastaPizzaNet
 {
-    public class Drank : IBedrag
+    public abstract class Drank : IBedrag
     {
         public DrankenLijst Naam { get; set; }
 
-        public virtual decimal Prijs { get; }
+        private decimal prijsValue;
+        public virtual decimal Prijs
+        {
+            get
+            {
+                return prijsValue;
+            }
+        }
 
         public Drank(DrankenLijst naam)
         {
@@ -20,8 +27,7 @@ namespace PastaPizzaNet
 
         public decimal BerekenBedrag()
         {
-            decimal drankPrijs = this.Prijs;
-            return drankPrijs;
+            return Prijs;
         }
     }
 }

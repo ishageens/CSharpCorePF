@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PastaPizzaNet
 {
-    class WarmeDrank : Drank
+    public class WarmeDrank : Drank
     {
         private DrankenLijst naamValue;
         public DrankenLijst Naam
@@ -13,17 +13,21 @@ namespace PastaPizzaNet
             {
                 return naamValue;
             }
-
             set
             {
+                //validatie van enum lukt me niet
                 naamValue = value;
             }
         }
-        public const decimal warmedrankPrijs = 2.5m;
+
+        private const decimal warmedrankPrijs = 2.5m;
 
         public override decimal Prijs
         {
-            get => warmedrankPrijs;
+            get
+            {
+                return warmedrankPrijs;
+            }
         }
 
         public WarmeDrank(DrankenLijst naam) : base(naam)

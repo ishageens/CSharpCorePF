@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PastaPizzaNet
 {
-    class Dessert : IBedrag
+    public class Dessert : IBedrag
     {
         public DessertenLijst Naam { get; set; }
 
@@ -17,11 +17,8 @@ namespace PastaPizzaNet
                     prijsValue = 2;
                 else prijsValue = 3;
                 return prijsValue;
-
             }
         }
-        //Tiramisu en Ijs = €3
-        // Cake = €2
 
         public Dessert(DessertenLijst naam)
         {
@@ -31,8 +28,7 @@ namespace PastaPizzaNet
 
         public decimal BerekenBedrag()
         {
-            decimal dessertPrijs = this.Prijs;
-            return dessertPrijs;
+            return Prijs;
         }
     }
 }

@@ -11,7 +11,6 @@ namespace PastaPizzaNet
         {
             Onderdelen = onderdelen;
         }
-
         public List<string> Onderdelen { get; set; }
 
         public override decimal BerekenBedrag()

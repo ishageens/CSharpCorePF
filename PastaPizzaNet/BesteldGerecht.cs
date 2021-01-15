@@ -11,23 +11,40 @@ namespace PastaPizzaNet
             get; set;
         }
         public Grootte Grootte { get; set; }
-        public Extras? Extras { get; set; }
-        public BesteldGerecht(Gerecht gerecht, Grootte grootte, Extras? extras = null, Extras? extras1 = null, Extras? extras2 = null)
+        public List<Extras>? Extras { get; set; }
+        public BesteldGerecht(Gerecht gerecht, Grootte grootte, List<Extras>? extras = null)
         {
-            this.GevraagdGerecht = gerecht;
-            this.Grootte = grootte;
-            this.Extras = extras;
-            this.Extras = extras1;
-            this.Extras = extras2;
+            GevraagdGerecht = gerecht;
+            Grootte = grootte;
+            Extras = extras;
+
+
         }
 
-        public override string ToString() => GevraagdGerecht.ToString() + $"({Grootte}) {Extras}";
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder(GevraagdGerecht.ToString());
+            sb.Append($" ({Grootte}) ");
+            if (Extras.Count != 0)
+            {
+                sb.Append($" extra: ");
+                foreach (var extra in Extras)
+                    sb.Append($"{extra} ");
+            }
+            sb.Append($" ({this.BerekenBedrag()} euro)");
+            return sb.ToString();
+        }
 
         public decimal BerekenBedrag()
         {
-            decimal besteldGerechtPrijs = 2;
+            decimal besteldGerechtPrijs = GevraagdGerecht.StandaardPrijs;
             if (this.Grootte == Grootte.Groot)
                 besteldGerechtPrijs += 3;
+            if (Extras.Count != 0)
+            {
+                foreach (var extra in Extras)
+                    besteldGerechtPrijs += 1;
+            }
             return besteldGerechtPrijs;
         }
     }
