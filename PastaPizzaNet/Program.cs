@@ -63,58 +63,58 @@ namespace PastaPizzaNet
 
 
             // UITVOERING
-            ////Lijst tonen
-            //int bestellingsnr = 0;
-            //foreach (var bestelling in alleBestellingen)
-            //{
-            //    bestellingsnr++;
-            //    Console.WriteLine($"Bestelling {bestellingsnr}:");
-            //    Console.WriteLine(bestelling);
-            //    for (int i = 0; i < 50; i++)
-            //        Console.Write("*");
-            //    Console.WriteLine();
-            //    Console.WriteLine();
-            //}
+            //Lijst tonen
+            int bestellingsnr = 0;
+            foreach (var bestelling in alleBestellingen)
+            {
+                bestellingsnr++;
+                Console.WriteLine($"Bestelling {bestellingsnr}:");
+                Console.WriteLine(bestelling);
+                for (int i = 0; i < 50; i++)
+                    Console.Write("*");
+                Console.WriteLine();
+                Console.WriteLine();
+            }
 
-            ////Bestellingen van Jan Janssen
-            //var janJanssen = from bestelling in alleBestellingen
-            //                 where bestelling.Klant.KlantID == 1
-            //                 select bestelling;
-            //decimal totaaljanJanssen = 0;
-            //foreach (var bestelling in janJanssen)
-            //{
-            //    Console.WriteLine(bestelling);
-            //    totaaljanJanssen += bestelling.BerekenBedrag();
-            //}
-            //Console.WriteLine($"Het totaalbedrag van alle bestellingen van klant {klant1.Naam} is: {totaaljanJanssen} euro");
+            //Bestellingen van Jan Janssen
+            var janJanssen = from bestelling in alleBestellingen
+                             where bestelling.Klant.KlantID == 1
+                             select bestelling;
+            decimal totaaljanJanssen = 0;
+            foreach (var bestelling in janJanssen)
+            {
+                Console.WriteLine(bestelling);
+                totaaljanJanssen += bestelling.BerekenBedrag();
+            }
+            Console.WriteLine($"Het totaalbedrag van alle bestellingen van klant {klant1.Naam} is: {totaaljanJanssen} euro");
 
-            ////Bestellingen gegroepeerd per klant
-            //var perKlant = from bestelling in alleBestellingen
-            //               group bestelling by bestelling.Klant;
+            //Bestellingen gegroepeerd per klant
+            var perKlant = from bestelling in alleBestellingen
+                           group bestelling by bestelling.Klant;
 
-            //foreach (var klant in perKlant)
-            //{
-            //    if (klant.Key.Naam != "Onbekende Klant")
-            //        Console.WriteLine($"Bestellingen van klant {klant.Key.Naam}:");
-            //    else
-            //        Console.WriteLine("Onbekende klanten:");
-            //    Console.WriteLine();
-            //    decimal totaalPerKlant = 0;
-            //    foreach (var bestelling in klant)
-            //    {
-            //        Console.WriteLine(bestelling);
-            //        totaalPerKlant += bestelling.BerekenBedrag();
-            //    }
-            //    Console.WriteLine();
-            //    Console.WriteLine($"Het totaalbedrag van alle bestellingen van klant {klant.Key.Naam} is: {totaalPerKlant} euro");
-            //    Console.WriteLine();
-            //    for (int i = 0; i < 50; i++)
-            //        Console.Write("*");
-            //    Console.WriteLine();
-            //    Console.WriteLine();
-            //}
+            foreach (var klant in perKlant)
+            {
+                if (klant.Key.Naam != "Onbekende Klant")
+                    Console.WriteLine($"Bestellingen van klant {klant.Key.Naam}:");
+                else
+                    Console.WriteLine("Onbekende klanten:");
+                Console.WriteLine();
+                decimal totaalPerKlant = 0;
+                foreach (var bestelling in klant)
+                {
+                    Console.WriteLine(bestelling);
+                    totaalPerKlant += bestelling.BerekenBedrag();
+                }
+                Console.WriteLine();
+                Console.WriteLine($"Het totaalbedrag van alle bestellingen van klant {klant.Key.Naam} is: {totaalPerKlant} euro");
+                Console.WriteLine();
+                for (int i = 0; i < 50; i++)
+                    Console.Write("*");
+                Console.WriteLine();
+                Console.WriteLine();
+            }
 
-
+            //Wegschrijven en inlezen
             Gerechten.SchrijfGerechten(gerechtenLijst);
             Gerechten.LeesGerechten();
 
